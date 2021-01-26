@@ -8,7 +8,25 @@ from flask import render_template
 app = Flask(__name__)
 
 
+@app.route("/man/<tokens>")
+def man(tokens):
 
+
+
+@app.route("/repost/<tokens>")
+def man(tokens):
+   vk_session = vk_api.VkApi(token = tokens)
+   time.sleep(1)
+   vk = vk_session.get_api()
+   time.sleep(1)
+   vk1 = vk.newsfeed.getRecommended(count = 10)
+   vv1 = vk1['items'][4]['source_id']
+   vv2 = vk1['items'][4]['post_id']
+   vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
+   vv1 = vk1['items'][6]['source_id']
+   vv2 = vk1['items'][6]['post_id']
+   time.sleep(23)
+   vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
 
 
 @app.route("/about/<tokens>")
