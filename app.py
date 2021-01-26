@@ -14,7 +14,7 @@ def man(tokens):
 
 
 @app.route("/repost/<tokens>")
-def man(tokens):
+def man(tokens):\
    vk_session = vk_api.VkApi(token = tokens)
    time.sleep(1)
    vk = vk_session.get_api()
@@ -27,6 +27,7 @@ def man(tokens):
    vv2 = vk1['items'][6]['post_id']
    time.sleep(23)
    vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
+   return(render_template('ok!')
 
 
 @app.route("/about/<tokens>")
