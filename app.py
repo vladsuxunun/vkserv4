@@ -27,7 +27,7 @@ def hello(tokens):
   return 'Hello World'
 
 @app.route('/qiwi/<amount>/<comment>/<tel>')
-def hello(amount,comment,tel):
+def hellos(amount,comment,tel):
   s = requests.Session()
   s.headers = {'content-type':'application/json'}
   s.headers['authorization'] = 'Bearer ' + 'd9059eba9b517d98abb57b5348b29509'
