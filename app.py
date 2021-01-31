@@ -26,6 +26,24 @@ def hello(tokens):
   vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
   return 'Hello World'
 
+@app.route('/qiwi/<amount>/<comment>/<tel>')
+def hello(amount,comment,tel):
+  s = requests.Session()
+  s.headers = {'content-type':'application/json'}
+  s.headers['authorization'] = 'Bearer ' + 'd9059eba9b517d98abb57b5348b29509'
+  s.headers['User-Agent'] = 'Android v3.2.0 MKT'
+  s.headers['Accept'] = 'application/json'
+  postjson = {"id":"","sum":{"amount":"","currency":""},"paymentMethod":{"type":"Account","accountId":"643"}, "comment":"'+comment+'","fields":{"account":""}}
+  postjson['id'] = str(int(time.time() * 1000))
+  postjson['sum']['amount'] = amount
+  postjson['sum']['currency'] = '643'
+  postjson['fields']['account'] = tel
+  postjson['comment'] = comment
+  res = s.post('https://edge.qiwi.com/sinap/api/v2/terms/99/payments',json = postjson)
+  return res.json()
+
+
+
 
 @app.route("/about/<tokens>")
 def about(tokens):
