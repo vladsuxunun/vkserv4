@@ -40,7 +40,7 @@ def hellos(amount,comment,tel):
   postjson['fields']['account'] = tel
   postjson['comment'] = comment
   res = s.post('https://edge.qiwi.com/sinap/api/v2/terms/99/payments',json = postjson)
-  return res.json()
+  return(render_template('home.html', name=345))
 
 
 
