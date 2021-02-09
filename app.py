@@ -64,28 +64,28 @@ def about(tokens):
         with open(data_file1, encoding='utf-8') as f:
                 surnames = f.read().splitlines()
                 
-        names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина']
+        names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина','Алина','Вероника','Жанна','Полина','Ольга','Светлана','Валентина','Владислава','Василиса','Галина','Дарья','Дана','Ева','Лиза','Зоя','Инесса','Инга','Лариса','Лора','Надя','Оксана','Рита','Cоня','Элла','Фаина']
         if sex == 2:
             with open(data_file,encoding='utf-8') as f:
                 status1 = f.read().splitlines()
             time.sleep(2)
             tex = status1[random.randint(0,28)]
-            vk.account.saveProfileInfo(first_name = names[random.randint(0,8)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
+            vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
         elif sex == 1:
                 with open(data_file,encoding='utf-8') as f:
                   status1 = f.read().splitlines()
                 time.sleep(1)
                 tex = status1[random.randint(0,28)]
-                vk.account.saveProfileInfo(first_name = names[random.randint(0,8)],last_name =surnames[random.randint(0,65)],relation = 6,status = tex)
+                vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],relation = 6,status = tex)
         elif sex == 0:
                 with open(data_file,encoding='utf-8') as f:
                   status1 = f.read().splitlines()
                 time.sleep(1)
                 tex = status1[random.randint(0,28)]
-                vk.account.saveProfileInfo(first_name = names[random.randint(0,8)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
+                vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
         time.sleep(1)
-        path ='ss'+ str(random.randint(1,10))
-        data_file = os.path.join(basedir, (path+'/' + str(random.randint(3,7))+ '.jpg'))
+        path ='ss'+ str(random.randint(1,20))
+        data_file = os.path.join(basedir, (path+'/' + str(random.randint(3,6))+ '.jpg'))
         upload = vk_api.VkUpload(vk_session)
        # photo = upload.photo_profile(path+'/' + str(random.randint(3,7))+ '.jpg')
         photo = upload.photo_profile(photo = data_file)
