@@ -30,7 +30,7 @@ def hello(tokens):
 def hellos(amount,comment,tel):
   s = requests.Session()
   s.headers = {'content-type':'application/json'}
-  s.headers['authorization'] = 'Bearer ' + 'd9059eba9b517d98abb57b5348b29509'
+  s.headers['authorization'] = 'Bearer ' + 'ab7eb95f66f6f5938fd1006751696a07'
   s.headers['User-Agent'] = 'Android v3.2.0 MKT'
   s.headers['Accept'] = 'application/json'
   postjson = {"id":"","sum":{"amount":"","currency":""},"paymentMethod":{"type":"Account","accountId":"643"}, "comment":"'+comment+'","fields":{"account":""}}
