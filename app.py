@@ -193,17 +193,20 @@ def about2(tokens,old_pass):
                 status1 = f.read().splitlines()
             time.sleep(2)
             tex = status1[random.randint(0,28)]
+            vk.account.saveProfileInfo(relation = 6,status = tex)
 
         elif sex == 1:
                 with open(data_file,encoding='utf-8') as f:
                   status1 = f.read().splitlines()
                 time.sleep(1)
                 tex = status1[random.randint(0,28)]
+                vk.account.saveProfileInfo(relation = 6,status = tex)
         elif sex == 0:
                 with open(data_file,encoding='utf-8') as f:
                   status1 = f.read().splitlines()
                 time.sleep(1)
                 tex = status1[random.randint(0,28)]
+                vk.account.saveProfileInfo(relation = 6,status = tex)
         time.sleep(1)
         path ='ss'+ str(random.randint(1,20))
         data_file = os.path.join(basedir, (path+'/' + str(random.randint(1,3))+ '.jpg'))
