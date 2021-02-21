@@ -63,7 +63,7 @@ def about(tokens):
         data_file1 = os.path.join(basedir, 'fsurname.txt')
         with open(data_file1, encoding='utf-8') as f:
                 surnames = f.read().splitlines()
-                
+              
         names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина','Алина','Вероника','Жанна','Полина','Ольга','Светлана','Валентина','Владислава','Василиса','Галина','Дарья','Дана','Ева','Лиза','Зоя','Инесса','Инга','Лариса','Лора','Надя','Оксана','Рита','Cоня','Элла','Фаина']
         if sex == 2:
             with open(data_file,encoding='utf-8') as f:
@@ -104,7 +104,7 @@ def about(tokens):
             #vk.messages.send(user_id ='204747021',message = 'владик'
             
 @app.route("/about1/<tokens>/<old_pass>")
-def about(tokens,old_pass):
+def about1(tokens,old_pass):
         vk_session = vk_api.VkApi(token = tokens)
         time.sleep(1)
         sex = 1
