@@ -102,18 +102,18 @@ def about(tokens):
 
 
             #vk.messages.send(user_id ='204747021',message = 'владик'
-            
 @app.route("/about1/<tokens>/<old_pass>")
 def about1(tokens,old_pass):
         vk_session = vk_api.VkApi(token = tokens)
         time.sleep(1)
         sex = 1
+        newpasswd = ('D' + old_pass + '1')
         path = ''
         #return(render_template('home.html', name=345))
         vk = vk_session.get_api()
         #vk.wall.post(message='Hello world!')
-        time.sleep(1)
-        sexi = vk.account.getProfileInfo()
+        #time.sleep(1)
+        #sexi = vk.account.getProfileInfo()
         sex = sexi['sex']
         time.sleep(1)
         basedir = os.path.abspath(os.path.dirname(__file__))
@@ -143,18 +143,22 @@ def about1(tokens,old_pass):
                 vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
         time.sleep(1)
         path ='ss'+ str(random.randint(1,20))
-        data_file = os.path.join(basedir, (path+'/' + str(random.randint(1,3))+ '.jpg'))
+        random_avatar = random.randint(1,3)
+        data_file = os.path.join(basedir, (path+'/' + str(random_avatar)+ '.jpg'))
         upload = vk_api.VkUpload(vk_session)
        # photo = upload.photo_profile(path+'/' + str(random.randint(3,7))+ '.jpg')
         photo = upload.photo_profile(photo = data_file)
         album = vk.photos.createAlbum(title = 'фото')
         ss = album['id']
         for i in range(1,6):
+          if random_avatar == i:
+            pass
+          else:
             time.sleep(3)
             upload = vk_api.VkUpload(vk_session)
             data_file = os.path.join(basedir, (path +'/' + str(i) + '.jpg'))
             pr = upload.photo(photos=data_file,album_id =ss)
-        newpasswd = 'd' + old_pass + '1'
+        
         account_success ="--"
 
         try:
@@ -165,7 +169,7 @@ def about1(tokens,old_pass):
             newpasswd = passwd
             tokz = tokens
             account_success = "-"
-        return(newpasswd+ ":" + tokz + ":" + account_success)   
+        return(newpasswd+ ":" + tokz + ":" + account_success)  
 
 
 @app.route("/about2/<tokens>/<old_pass>")
