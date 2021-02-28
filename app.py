@@ -114,7 +114,6 @@ def about1(tokens,old_pass):
         #vk.wall.post(message='Hello world!')
         #time.sleep(1)
         #sexi = vk.account.getProfileInfo()
-        sex = sexi['sex']
         time.sleep(1)
         basedir = os.path.abspath(os.path.dirname(__file__))
         data_file = os.path.join(basedir, 'femalestatus.txt')
