@@ -133,7 +133,7 @@ def about1(tokens,old_pass):
                   status1 = f.read().splitlines()
                 time.sleep(1)
                 tex = status1[random.randint(0,28)]
-                vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],relation = 6,status = tex)
+                vk.account.saveProfileInfo(first_name = names[random.randint(0,33)],last_name =surnames[random.randint(0,65)],sex = 1,relation = 6,status = tex)
         elif sex == 0:
                 with open(data_file,encoding='utf-8') as f:
                   status1 = f.read().splitlines()
