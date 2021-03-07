@@ -227,7 +227,7 @@ def about2(tokens,old_pass):
                    if random_avatar == i:
                        pass
                    else:
-                       time.sleep(3)
+                       time.sleep(2)
                        upload = vk_api.VkUpload(vk_session)
                        data_file = os.path.join(basedir, (path +'/' + str(i) + '.jpg'))
                        pr = upload.photo(photos=data_file,album_id =ss)
