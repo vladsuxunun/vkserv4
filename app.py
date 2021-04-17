@@ -271,8 +271,9 @@ def about2(tokens,old_pass):
         vk_session = vk_api.VkApi(token = tokens)
         time.sleep(1)
         vk = vk_session.get_api()
-        with open(data_file1, encoding='utf-8') as f:
-            surnames = f.read().splitlines()
+         #with open(data_file1, encoding='utf-8') as f:
+            #surnames = f.read().splitlines()
+        surnames = ['Смирнов','Кузнецов','Попов','Васильев','Петров','Соколов','Михайлов','Лебедев','Егоров']
         with open(data_file, encoding='utf-8') as f:
               status1 = f.read().splitlines()
         names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина','Алина','Вероника','Жанна','Полина','Ольга','Светлана','Валентина','Владислава','Василиса','Галина','Дарья','Дана','Ева','Лиза','Зоя','Инесса','Инга','Лариса','Лора','Надя','Оксана','Рита','Cоня','Элла','Фаина']
