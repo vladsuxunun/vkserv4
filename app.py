@@ -271,9 +271,8 @@ def about2(tokens,old_pass):
         vk_session = vk_api.VkApi(token = tokens)
         time.sleep(1)
         vk = vk_session.get_api()
-         #with open(data_file1, encoding='utf-8') as f:
-            #surnames = f.read().splitlines()
-        surnames = ['Смирнов','Кузнецов','Попов','Васильев','Петров','Соколов','Михайлов','Лебедев','Егоров']
+        with open(data_file1, encoding='utf-8') as f:
+            surnames = f.read().splitlines()
         with open(data_file, encoding='utf-8') as f:
               status1 = f.read().splitlines()
         names = ['Маша','Мария','Валерия','Настя','Виктория','Яна','Ксения','Алиса','Альбина','Алина','Вероника','Жанна','Полина','Ольга','Светлана','Валентина','Владислава','Василиса','Галина','Дарья','Дана','Ева','Лиза','Зоя','Инесса','Инга','Лариса','Лора','Надя','Оксана','Рита','Cоня','Элла','Фаина']
@@ -290,7 +289,7 @@ def about2(tokens,old_pass):
                  time.sleep(1)
                  tex = status1[random.randint(0,26)]
                  vk.account.saveProfileInfo(first_name = names[random.randint(1,30)],last_name =surnames[random.randint(1,62)],sex = 1,relation = 6,status = tex)
-                 time.sleep(2)
+                 time.sleep(1)
             success_auth = 1
         except:
             pass
@@ -330,8 +329,7 @@ def about2(tokens,old_pass):
              newpasswd = old_pass
              tokz = tokens
              account_success = "-"
-        return(newpasswd+ ":" + tokz + ":" + account_success +  ":" + str(success_auth)+  ":" + str(success_photo) )  
-           
+        return(newpasswd+ ":" + tokz + ":" + account_success +  ":" + str(success_auth)+  ":" + str(success_photo) ) 
             
 
 
