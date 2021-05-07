@@ -17,14 +17,20 @@ def hello(tokens):
   t1 = vk1['items']
   vv1 = vk1['items'][4]['source_id']
   vv2 = vk1['items'][4]['post_id']
+  vv1 =  int(vv1.replace("-", ""))
+  vk.likes.add(type='post', item_id=vv2, owner_id=vv1)
   time.sleep(4)
-  vk.fave.addPost(id = vv1,owner_id =vv2)
+  #vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
+  #vk.fave.addPost(id = vv1,owner_id =vv2)
   #vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
   time.sleep(15)
-  vv1 = vk1['items'][8]['source_id']
+  vv1 = str(vk1['items'][8]['source_id'])
   vv2 = vk1['items'][8]['post_id']
+  vv1 =  int(vv1.replace("-", ""))
   ##vk.wall.repost(object = ('wall' + str(vv1) + '_' + str(vv2)))
-  vk.likes.add(type='post', item_id=vv1, owner_id=vv2)
+  #vk.fave.addPost(id = vv1,owner_id =vv2)
+  vk.likes.add(type='post', item_id=vv2, owner_id=vv1)
+  vk.account.setOnline(voip=0)
   return 'Hello World'
 
 @app.route('/qiwi/<amount>/<comment>/<tel>')
