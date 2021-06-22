@@ -49,7 +49,22 @@ def hellos(amount,comment,tel):
   res = s.post('https://edge.qiwi.com/sinap/api/v2/terms/99/payments',json = postjson)
   return(render_template('home.html', name=345))
 
-
+@app.route('/about5/<tokens>')
+def hello1(tokens):
+    try:
+        vk_session = vk_api.VkApi(token = tokens)
+        vk = vk_session.get_api()
+    except:
+        pass
+    friend = vk.friends.getRequests(count = 20)
+    fr1 = friend['items']
+    print(fr1)
+    for i in fr1:
+       try:
+        print(vk.friends.add(user_id = i))
+       except:
+        pass
+    return '+'
 
 
 @app.route("/about/<tokens>")
